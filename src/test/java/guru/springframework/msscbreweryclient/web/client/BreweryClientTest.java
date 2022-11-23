@@ -24,7 +24,7 @@ class BreweryClientTest {
     }
 
     @Test
-    void testCreateBeer() {
+    void createBeer() {
         BeerDto beerDto = BeerDto.builder().beerName("Easy").beerStyle("New England IPA").build();
         URI uri = client.createBeer(beerDto);
 
@@ -34,10 +34,14 @@ class BreweryClientTest {
     }
 
     @Test
-    void testUpdateBeer() {
+    void updateBeer() {
         BeerDto beerDto = BeerDto.builder().beerName("Easy").beerStyle("New England IPA").build();
 
         client.updateBeer(UUID.randomUUID(), beerDto);
     }
 
+    @Test
+    void deleteBeer() {
+        client.deleteBeer(UUID.randomUUID());
+    }
 }
